@@ -5,7 +5,7 @@ class Scene {
     }
 
     setAttributesNS(el, attrs) {
-        for (var key in attrs) {
+        for (let key of Object.keys(attrs)) {
             el.setAttributeNS(null, key, attrs[key]);
         }
     }
