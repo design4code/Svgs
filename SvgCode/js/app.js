@@ -84,15 +84,26 @@ class Scene {
 
 const scene = new Scene();
 
-function createTestScene(scene) {
-        scene.createRectangle(0, 0, 70, 110,"coral");
-        scene.createCircle(150, 60, 55, "hotpink");
-        scene.createLine(0, 150, 70, 150, "black", 3);
-        scene.createPolyline("100 150 200 150 100 200 200 200", "transparent","cornflowerblue",3);
-        scene.createPolygon("50 160 55 180 70 180 60 190 65 205 50 195 35 205 40 190 30 180 45 180", "cornflowerblue");
+async function createTestScene(scene) {
+    scene.createRectangle(0, 0, 70, 110,"coral");
+    scene.createCircle(150, 60, 55, "hotpink");
+    scene.createLine(0, 150, 70, 150, "black", 3);
+    scene.createPolyline("100 150 200 150 100 200 200 200", "transparent","cornflowerblue",3);
+    scene.createPolygon("50 160 55 180 70 180 60 190 65 205 50 195 35 205 40 190 30 180 45 180", "cornflowerblue");
 };
 
 createTestScene(scene);
+
+// async function createTestScene(scene) {
+//     return new Promise(async (resolve) => {
+//         await scene.createRectangle(0, 0, 70, 110,"coral");
+//         await scene.createCircle(150, 60, 55, "hotpink");
+//         await scene.createLine(0, 150, 70, 150, "black", 3);
+//         await scene.createPolyline("100 150 200 150 100 200 200 200", "transparent","cornflowerblue",3);
+//         await scene.createPolygon("50 160 55 180 70 180 60 190 65 205 50 195 35 205 40 190 30 180 45 180", "cornflowerblue");
+//         resolve();
+//     });
+// };
 
 // export async function createTestScene(scene) {
 //     return new Promise(async (resolve) => {
