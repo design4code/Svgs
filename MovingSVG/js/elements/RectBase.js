@@ -18,6 +18,7 @@ export class RectBase {
     createRectangle() {
         const myRect = document.createElementNS(this.svgNS, "rect");
         this.setAttributesNS(myRect, {
+            "class": "base",
             "id": "rectangle",
             "x": this.x,
             "y": this.y,

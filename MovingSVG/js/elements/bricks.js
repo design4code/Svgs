@@ -4,8 +4,6 @@ export class Bricks extends RectBase {
 
     constructor(x, y, width, height, color) {
         super(x, y, width, height, color);
-        this.selectedElement = false;
-
     }
 
     setAttributesNS(el, attrs) {
@@ -27,8 +25,7 @@ export class Bricks extends RectBase {
         });
 
         document.querySelector("svg").appendChild(myRect);
+
     }
-
-
 
 }
