@@ -18,16 +18,20 @@ function Colliding(ball,brick1, brick2) {
             ball.cy + ball.r > brick1.y &&
             ball.cy < brick1.y + brick1.height){
                 ball.xspeed = ball.xspeed * -1;
-                ball.color = "green"
+                let element = document.querySelector("circle")
+                element.classList.add("bounceColour");
+                window.setTimeout(function() { element.classList.remove("bounceColour") }, 300);
         }
         //moving in y direction
         if(ball.cx + ball.r > brick1.x &&
             ball.cx < brick1.x +brick1.width &&
             ball.cy + ball.r + ball.yspeed > brick1.y &&
             ball.cy + ball.yspeed < brick1.y + brick1.height){
-            ball.yspeed = ball.yspeed * -1;
-            ball.color = "green"
-            window.setTimeout(function() { ball.color = "red"; }, 500);
+                ball.yspeed = ball.yspeed * -1;
+
+                let element = document.querySelector("circle")
+                element.classList.add("bounceColour");
+                window.setTimeout(function() { element.classList.remove("bounceColour") }, 300);
         }
 
         // Brick 2
@@ -35,13 +39,19 @@ function Colliding(ball,brick1, brick2) {
             ball.cx + ball.xspeed < brick2.x + brick2.width &&
             ball.cy + ball.r > brick2.y &&
             ball.cy < brick2.y + brick2.height){
-            ball.xspeed = ball.xspeed * -1;
+                ball.xspeed = ball.xspeed * -1;
+                let element = document.querySelector("circle")
+                element.classList.add("bounceColour");
+                window.setTimeout(function() { element.classList.remove("bounceColour") }, 300);
         }
         if(ball.cx + ball.r > brick2.x &&
             ball.cx < brick2.x +brick2.width &&
             ball.cy + ball.r + ball.yspeed > brick2.y &&
             ball.cy + ball.yspeed < brick2.y + brick2.height){
-            ball.yspeed = ball.yspeed * -1;
+                ball.yspeed = ball.yspeed * -1;
+                let element = document.querySelector("circle")
+                element.classList.add("bounceColour");
+                window.setTimeout(function() { element.classList.remove("bounceColour") }, 400);
         }
 
     }, 10);

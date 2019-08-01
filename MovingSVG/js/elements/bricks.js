@@ -25,7 +25,5 @@ export class Bricks extends RectBase {
         });
 
         document.querySelector("svg").appendChild(myRect);
-
     }
-
 }

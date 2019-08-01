@@ -1,36 +1,30 @@
 export function Drag () {
 
     let active = false;
-    const item = document.querySelector(".draggable");
-    let currentX = item.getAttributeNS(null,"x");
-    let currentY = item.getAttributeNS(null, "y");
-    let xOffset = 0;
-    let yOffset = 0;
-    let initialX; // Mouse position x
-    let initialY; // Mouse position y
+    const svg = document.querySelector("svg");
+    const items = document.querySelectorAll(".draggable");
+    let currentX = items.getAttributeNS(null,"x");
+    let currentY = items.getAttributeNS(null, "y");
 
-    item.addEventListener('mousedown', startDrag);
-    item.addEventListener('mousemove', drag);
-    item.addEventListener('mouseup', endDrag);
-    item.addEventListener('mouseleave', endDrag);
+    for (let item of items) {
+        item.addEventListener('mousedown', startDrag);
+        item.addEventListener('mousemove', drag);
+        item.addEventListener('mouseup', endDrag);
+        item.addEventListener('mouseleave', endDrag);
+    }
+
 
     function startDrag(e) {
-        initialX = e.clientX;
-        initialY = e.clientY;
-        active = true;
+        active = e.target
     }
 
     function drag(e) {
-        if(active) {
 
-            e.preventDefault();
             let coord = getMousePosition(e);
-            // currentX = xOffset - e.clientX;
-            // currentY = yOffset - e.clientY;
+            e.preventDefault();
 
-            item.setAttributeNS(null, "x", coord.x);
-            item.setAttributeNS(null, "y", coord.x);
-        }
+            active.setAttributeNS(null, "x", coord.x);
+            active.setAttributeNS(null, "y", coord.y);
     }
 
     function endDrag(e) {
@@ -40,7 +34,7 @@ export function Drag () {
     }
 
     function getMousePosition(e) {
-        let CTM = item.getScreenCTM();
+        let CTM = svg.getScreenCTM();
         return {
             x: (e.clientX - CTM.e) / CTM.a,
             y: (e.clientY - CTM.f) / CTM.d
